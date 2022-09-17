@@ -24,7 +24,7 @@ public class Fraction {
     }
     public Fraction reduce(){
         Fraction f= new Fraction();
-        for(int i=this.numerator/2; i>0; i--){
+        for(int i=Math.abs(this.numerator)/2; i>0; i--){
             if (this.numerator%i==0 && this.denominator%i==0){
                 f.setNumerator(this.numerator/i);
                 f.setDenominator(this.denominator/i);
@@ -37,11 +37,12 @@ public class Fraction {
 
     public Fraction reverse () {
         Fraction f= new Fraction();
+        int tmp = getDenominator();
         if (this.numerator!=0)
             f.setDenominator(this.numerator);
         else
             f.setDenominator(0);
-        f.setNumerator(this.denominator);
+        f.setNumerator(tmp);
         f.print();
         return f;
     }
