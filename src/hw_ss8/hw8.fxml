@@ -25,8 +25,8 @@
       <ListView fx:id="lv" layoutX="327.0" layoutY="31.0" prefHeight="333.0" prefWidth="239.0" />
       <MenuButton layoutX="186.0" layoutY="263.0" mnemonicParsing="false" text="Sort">
         <items>
-          <MenuItem mnemonicParsing="false" text="By Name" />
-          <MenuItem mnemonicParsing="false" text="By Mark" />
+          <MenuItem onAction="#sortByName" mnemonicParsing="false" text="By Name" />
+          <MenuItem onAction="#sortByMark" mnemonicParsing="false" text="By Mark" />
         </items>
       </MenuButton>
    </children>
