@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="hw_ss8.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+       <Text fx:id="error" fill="RED" layoutX="54.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
+           <font>
+               <Font size="14.0" />
+           </font>
+       </Text>
+      <TextField fx:id="txtName" layoutX="32.0" layoutY="85.0" prefHeight="25.0" prefWidth="206.0" promptText="Name" />
+      <TextField fx:id="txtEmail" layoutX="32.0" layoutY="131.0" prefHeight="25.0" prefWidth="206.0" promptText="Email" />
+      <TextField fx:id="txtMark" layoutX="32.0" layoutY="181.0" prefHeight="25.0" prefWidth="206.0" promptText="Mark" />
+      <Text layoutX="96.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input Form">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button onAction="#handleSubmit" layoutX="162.0" layoutY="226.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Submit" />
+      <ListView fx:id="lv" layoutX="327.0" layoutY="31.0" prefHeight="333.0" prefWidth="239.0" />
+      <MenuButton layoutX="186.0" layoutY="263.0" mnemonicParsing="false" text="Sort">
+        <items>
+          <MenuItem mnemonicParsing="false" text="By Name" />
+          <MenuItem mnemonicParsing="false" text="By Mark" />
+        </items>
+      </MenuButton>
+   </children>
+</Pane>

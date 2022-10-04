@@ -1,6 +1,9 @@
 package hw_ss7;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import java.util.ArrayList;
@@ -10,9 +13,11 @@ public class Controller {
     public TextField txtPhone;
     public Text error;
     public Text result;
+    public ListView<Contact> lv;
 
-    private ArrayList<Contact> contactList = new ArrayList<>();
 
+    ObservableList<Contact> contactList = FXCollections.observableArrayList();
+//    JVFx version ArrayList
     public void handleSubmit(){
         try{
             error.setVisible(false);
@@ -29,11 +34,8 @@ public class Controller {
     }
 
     public void printResult(){
-        String txt = "";
-        for (Contact c:contactList) {
-            txt += c.toString();
-        }
-        result.setText(txt);
+       lv.setItems(contactList); //auto call toString method;
+        lv.refresh();
     }
 
     public void updateContact (){
