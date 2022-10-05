@@ -1,4 +1,4 @@
-package hw_ss8;
+package session_9;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,9 +8,12 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
+import java.net.URL;
 import java.util.Comparator;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable{
+
     public TextField txtName;
     public TextField txtEmail;
     public TextField txtMark;
@@ -22,6 +25,15 @@ public class Controller {
     private boolean nameSortDsc=false;
     private boolean markSortDsc=false;
     private ObservableList<Student> studentsList = FXCollections.observableArrayList();
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        studentsList.add(new Student("Tu","tht@email", "10"));
+        studentsList.add(new Student("Linh","tml@email", "11"));
+        lv.setItems(studentsList);
+    }
+
 
     public void handleSubmit(){
         try{
@@ -43,25 +55,25 @@ public class Controller {
     }
 
     public void sortByMark(){
-         studentsList.sort(new Comparator<Student>() {
-             @Override
-             public int compare(Student o1, Student o2) {
-                 return markSortDsc? o2.getMark()-o1.getMark():o1.getMark()-o2.getMark() ;
-             }
-         });
+        studentsList.sort(new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return markSortDsc? o2.getMark()-o1.getMark():o1.getMark()-o2.getMark() ;
+            }
+        });
         sortMarkBtn.setText(markSortDsc? "By mark (Asc)":"By mark (Desc)");
-         markSortDsc=!markSortDsc;
-         printResult();
+        markSortDsc=!markSortDsc;
+        printResult();
     }
     public void sortByName(){
-            studentsList.sort(new Comparator<Student>() {
-                @Override
-                public int compare(Student o1, Student o2) {
-                    return nameSortDsc? o2.getName().compareTo(o1.getName()) : o1.getName().compareTo(o2.getName()) ;
-                }
-            });
-            sortNameBtn.setText(nameSortDsc? "By name (Asc)":"By name (Desc)");
-            nameSortDsc=!nameSortDsc;
+        studentsList.sort(new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return nameSortDsc? o2.getName().compareTo(o1.getName()) : o1.getName().compareTo(o2.getName()) ;
+            }
+        });
+        sortNameBtn.setText(nameSortDsc? "By name (Asc)":"By name (Desc)");
+        nameSortDsc=!nameSortDsc;
         printResult();
     }
 

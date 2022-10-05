@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="hw_ss9.form.FormController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="212.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new subject">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCode" layoutX="170.0" layoutY="147.0" prefHeight="32.0" prefWidth="259.0" promptText="Code" />
+      <TextField fx:id="txtSubject" layoutX="170.0" layoutY="214.0" prefHeight="32.0" prefWidth="259.0" promptText="Subject" />
+      <Button onAction="#handleSubmit" layoutX="247.0" layoutY="269.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.0" text="Submit">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button onAction="#navigateToList" layoutX="247.0" layoutY="320.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: transparent;" text="Go back" />
+      <Text fx:id="error" fill="#bf0000" layoutX="170.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject is already existed!" visible="false" />
+   </children>
+</Pane>
