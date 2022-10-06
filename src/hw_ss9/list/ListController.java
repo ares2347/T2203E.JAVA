@@ -11,11 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static hw_ss9.Main.rootStage;
+import static javafx.scene.control.TableColumn.*;
 
 public class ListController implements Initializable {
     public TableView<Subject> table;
@@ -27,6 +29,23 @@ public class ListController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         code.setCellValueFactory(new PropertyValueFactory<Subject,String>("code"));
         subject.setCellValueFactory(new PropertyValueFactory<Subject,String>("subject"));
+        table.setEditable(true);
+        code.setCellFactory(TextFieldTableCell.<Subject>forTableColumn());
+        code.setOnEditCommit(
+                (CellEditEvent<Subject, String> s) -> {
+                    s.getTableView().getItems().get(
+                            s.getTablePosition().getRow()
+                    ).setCode(s.getNewValue());
+                }
+        );
+        subject.setCellFactory(TextFieldTableCell.<Subject>forTableColumn());
+        subject.setOnEditCommit(
+                (CellEditEvent<Subject, String> s) -> {
+                    s.getTableView().getItems().get(
+                            s.getTablePosition().getRow()
+                    ).setSubject(s.getNewValue());
+                }
+        );
         table.setItems(subjectObservableList);
     }
 
